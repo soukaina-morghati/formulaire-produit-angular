@@ -34,7 +34,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         echo '🐳 Building the Docker image...'
-        bat 'docker build -t FormReactif-app .'
+        bat 'docker build -t formreactif-app .'
       }
     }
 
