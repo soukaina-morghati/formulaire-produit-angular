@@ -1,0 +1,49 @@
+<h2>Création de produit</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Nom du produit</label>
+    <input formControlName="name">
+    <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched" style="color:red">
+      Nom requis.
+    </div>
+  </div>
+
+  <div>
+    <label>Catégorie</label>
+    <select formControlName="category">
+      <option value="">-- Sélectionnez --</option>
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+    <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched" style="color:red">
+      Catégorie requise.
+    </div>
+  </div>
+
+  <div>
+    <label>Prix (€)</label>
+    <input type="number" formControlName="price">
+    <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" style="color:red">
+      Prix requis (positif).
+    </div>
+    <div *ngIf="priceValue > 1000" style="color:green">
+      Produit premium
+    </div>
+  </div>
+
+  <div>
+    <label>Quantité</label>
+    <input type="number" formControlName="quantity">
+    <div *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched" style="color:red">
+      Quantité ≥ 0 requise.
+    </div>
+  </div>
+
+  <div>
+    <label>Description</label>
+    <textarea formControlName="description"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="productForm.invalid">Créer</button>
+  <button type="button" (click)="onReset()">Réinitialiser</button>
+</form>
