@@ -2,7 +2,7 @@
 
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
   <div>
-    <label>Nom du produit</label>
+    <label for="nom"> Nom du produit</label>
     <input formControlName="name">
     <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched" style="color:red">
       Nom requis.
@@ -10,7 +10,7 @@
   </div>
 
   <div>
-    <label>Catégorie</label>
+    <label for="Catégorie" >Catégorie</label>
     <select formControlName="category">
       <option value="">-- Sélectionnez --</option>
       <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
@@ -21,7 +21,7 @@
   </div>
 
   <div>
-    <label>Prix (€)</label>
+    <label for="Prix">Prix (€)</label>
     <input type="number" formControlName="price">
     <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" style="color:red">
       Prix requis (positif).
@@ -32,7 +32,7 @@
   </div>
 
   <div>
-    <label>Quantité</label>
+    <label for="Quantité">Quantité</label>
     <input type="number" formControlName="quantity">
     <div *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched" style="color:red">
       Quantité ≥ 0 requise.
@@ -40,7 +40,7 @@
   </div>
 
   <div>
-    <label>Description</label>
+    <label for="Description">Description</label>
     <textarea formControlName="description"></textarea>
   </div>
 

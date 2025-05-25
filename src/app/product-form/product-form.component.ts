@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder,FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule ,NgIf} from '@angular/common';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-product-form',
   standalone: true,
