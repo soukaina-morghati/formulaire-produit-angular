@@ -26,7 +26,7 @@ pipeline {
     }
     stage('Build Angular app') {
             steps {
-                bat 'npx run build --configuration production'
+                bat 'npm run build --configuration production'
             }
         }
   
